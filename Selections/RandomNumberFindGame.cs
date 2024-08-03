@@ -69,7 +69,6 @@ namespace PatikaFundamentalsProject.Selections
             ConsoleHelper.WriteWithColor(gameOverText, ConsoleColor.Red);
 
             ConsoleHelper.WriteWithColor("\n Uyuglamayı Tekrar Başlatmak İçin Herhangi Bir Tuşa Basınız..", ConsoleColor.Cyan);
-
             ConsoleHelper.ConsoleNewLine();
             Console.ReadKey(false);
         }

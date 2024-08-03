@@ -4,6 +4,6 @@ namespace PatikaFundamentalsProject.Models
     {
         RandomNumberFindGame = 1,
         Calculator = 2,
-        AvarageCalculate = 3
+        AverageCalculate = 3
     }
 }
