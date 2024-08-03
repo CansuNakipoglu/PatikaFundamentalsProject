@@ -31,11 +31,11 @@ namespace PatikaFundamentalsProject.Helpers
             Console.ResetColor();
 
             Console.WriteLine("\n Klavyedeki ⬆️(yukarı ok tuşu) ve ⬇️(aşağı ok tuşunu) kullanarak istediğiniz seçeneğe gidip\n çalıştırmak için \u001b[32mEnter/Return\u001b[0m tuşuna basabilirsiniz \n");
-            (int left, int top) = Console.GetCursorPosition();
+            var (left, top) = Console.GetCursorPosition();
             var selection = SelectionType.RandomNumberFindGame;
             var decorator = " ➤ \u001b[32m";
             ConsoleKeyInfo key;
-            bool isSelected = false;
+            var isSelected = false;
 
             while (!isSelected)
             {
@@ -82,11 +82,11 @@ namespace PatikaFundamentalsProject.Helpers
             Console.ResetColor();
 
             Console.WriteLine("\n Klavyedeki ⬆️(yukarı ok tuşu) ve ⬇️(aşağı ok tuşunu) kullanarak yapmak istediğiniz matematik işlemine gidip\n çalıştırmak için \u001b[32mEnter/Return\u001b[0m tuşuna basabilirsiniz \n");
-            (int left, int top) = Console.GetCursorPosition();
+            var (left, top) = Console.GetCursorPosition();
             var selection = OperationType.Addition;
             var decorator = " ➤ \u001b[32m";
             ConsoleKeyInfo key;
-            bool isSelected = false;
+            var isSelected = false;
 
             while (!isSelected)
             {
@@ -132,6 +132,30 @@ namespace PatikaFundamentalsProject.Helpers
                  if (double.TryParse(userInput, out var number))
                  {
                      return number;
+                 }
+                 else
+                 {
+                     Console.WriteLine("Lütfen Sayısal Bir Değer Giriniz!");
+                 }
+             }
+         }
+         
+         public static double GetDoubleValueFromUser(int minValue, int maxValue)
+         {
+             while (true)
+             {
+                 var userInput = Console.ReadLine()!.Trim();
+
+                 if (double.TryParse(userInput, out var number))
+                 {
+                     if (number >= minValue && number <= maxValue)
+                     {
+                         return number;
+                     }
+                     else
+                     {
+                         Console.WriteLine($"Lütfen {minValue} ile {maxValue} sayıları arasında bir değer giriniz");
+                     }
                  }
                  else
                  {

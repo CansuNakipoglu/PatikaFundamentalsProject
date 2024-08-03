@@ -10,17 +10,17 @@ public class Calculator: ISelection
     {
         ConsoleHelper.ConsoleNewLine();
         
-        Console.Write("\nHesaplamak için Lütfen Birinci Sayıyı Giriniz : ");
+        Console.Write(" Hesaplamak için Lütfen Birinci Sayıyı Giriniz : ");
         var firstNumber = ConsoleHelper.GetDoubleValueFromUser();
-        Console.Write("\nHesaplamak için Lütfen İkinci Sayıyı Giriniz : ");
+        Console.Write("\n Hesaplamak için Lütfen İkinci Sayıyı Giriniz : ");
         var secondNumber = ConsoleHelper.GetDoubleValueFromUser();
         
         var selectedOperationType = ConsoleHelper.GetUserSelectedOperation();
 
         var result = 0d;
         var operationText = "Toplama";
-        
         var haveDivisionError = false;
+        
         switch (selectedOperationType)
         {
             case OperationType.Addition:
@@ -39,6 +39,8 @@ public class Calculator: ISelection
                 else result = firstNumber / secondNumber;
                 operationText = "Bölme";
                 break;
+            default:
+                throw new ArgumentOutOfRangeException();
         }
 
         ConsoleHelper.ConsoleNewLine();
