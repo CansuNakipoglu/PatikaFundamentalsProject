@@ -4,23 +4,25 @@ using PatikaFundamentalsProject.Selections.Abstracts;
 
 namespace PatikaFundamentalsProject.Selections;
 
-public class Calculator: ISelection
+//Polyphormisimden faydalanabilmek adına ISelection sınıfından miras alıyoruz.
+public class Calculator : ISelection
 {
     public void ExecSelection()
     {
         ConsoleHelper.ConsoleNewLine();
-        
+
         Console.Write(" Hesaplamak için Lütfen Birinci Sayıyı Giriniz : ");
         var firstNumber = ConsoleHelper.GetDoubleValueFromUser();
+        
         Console.Write("\n Hesaplamak için Lütfen İkinci Sayıyı Giriniz : ");
         var secondNumber = ConsoleHelper.GetDoubleValueFromUser();
-        
+
         var selectedOperationType = ConsoleHelper.GetUserSelectedOperation();
 
         var result = 0d;
         var operationText = "Toplama";
         var haveDivisionError = false;
-        
+
         switch (selectedOperationType)
         {
             case OperationType.Addition:
@@ -44,18 +46,19 @@ public class Calculator: ISelection
         }
 
         ConsoleHelper.ConsoleNewLine();
-        
+
         if (haveDivisionError)
         {
-            ConsoleHelper.WriteWithColor(" Bölme işleminde bölüm 0 olduğu için sonuç tanımsızdır.",ConsoleColor.Red);
+            ConsoleHelper.WriteWithColor(" Bölme işleminde bölüm 0 olduğu için sonuç tanımsızdır.", ConsoleColor.Red);
         }
         else
         {
-            ConsoleHelper.WriteWithColor($" {firstNumber} ile {secondNumber} sayılarının {operationText} İşleminin Sonucu = {result}",ConsoleColor.Yellow);
+            ConsoleHelper.WriteWithColor($" {firstNumber} ile {secondNumber} sayılarının {operationText} İşleminin Sonucu = {result}", ConsoleColor.Yellow);
         }
-        
+
         ConsoleHelper.WriteWithColor("\n Uyuglamayı Tekrar Başlatmak İçin Herhangi Bir Tuşa Basınız..", ConsoleColor.Cyan);
         ConsoleHelper.ConsoleNewLine();
+        
         Console.ReadKey(false);
     }
 }
